@@ -15,3 +15,4 @@ la aplicacion es creada en vs 2022 patron de arquitectura MVC con test de prueba
  using Microsoft.AspNetCore.Mvc;
  using Newtonsoft.Json;
  using Xunit;
+Enlace del duncionamiento final del proyecto comprado con postman : https://youtu.be/fyqQ47bjOCM
