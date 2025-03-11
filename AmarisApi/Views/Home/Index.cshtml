@@ -1,0 +1,135 @@
+﻿@* @model List<Employee>
+
+
+
+<h2>Lista de Empleados</h2>
+<input type="text" id="employeeId" placeholder="Ingrese ID (opcional)" />
+<button onclick="searchEmployee()">Buscar</button>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red;">@ViewBag.Error</p>
+}
+
+<table class="table">
+    <tr><th>ID</th><th>Nombre</th><th>Salario Mensual</th><th>Edad</th>
+        <th>Imagen</th><th>Salario Anual</th></tr>
+    @foreach (var emp in Model)
+    {
+        <tr>
+            <td>@emp.Id</td>
+            <td>@emp.employee_name</td>
+            <td>@emp.employee_salary</td>
+            <td>@emp.employee_age</td>
+            <td>@emp.profile_image</td>
+            <td>@emp.AnnualSalary</td>
+        </tr>
+    }
+</table>
+
+<script>
+    function searchEmployee() {
+        var id = document.getElementById("employeeId").value;
+        window.location.href = "/Home/Index/" + id;
+    }
+</script>
+
+<div class="col-md-8">
+    <h2 class="text-primary">Cristian Franco</h2>
+    <h5 class="text-muted">Desarrollador Full Stack</h5>
+    <p class="mt-3">Soy un ingeniero electrónico graduado y autodidacta con experiencia en desarrollo Full Stack. Manejo tecnologías como <strong>C#, .NET Framework,Python,Django, SQL Server, MySQL, Oracle, Razor, Telerik y Angular</strong>. También cuento con experiencia en <strong>Azure DevOps y consumo de APIs</strong>.</p>
+
+    <ul class="list-unstyled mt-3">
+        <li><strong>📞 Celular:</strong> <a href="tel:+573204539499">320 453 9499</a></li>
+        <li><strong>📧 Correo:</strong> <a href="mailto:cristianfranco01@hotmail.com">cristianfranco01@hotmail.com</a></li>
+        <li><strong>📧 Correo Institucional:</strong> <a href="mailto:cdfranco@unbosque.edu.co">cdfranco@unbosque.edu.co</a></li>
+    </ul>
+</div>
+
+ *@
+
+@model List<Employee>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Sección de búsqueda -->
+        <div class="col-md-6">
+            <h2 class="text-primary">Lista de Empleados</h2>
+            <div class="input-group mb-3">
+                <input type="text" id="employeeId" class="form-control" placeholder="Ingrese ID de empleado (opcional)">
+                <button class="btn btn-primary" onclick="searchEmployee()">Buscar</button>
+            </div>
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+        </div>
+    </div>
+
+    <!-- Tabla de empleados -->
+    <div class="table-responsive mt-4">
+        <table class="table table-hover table-striped border shadow">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Salario Mensual</th>
+                    <th>Edad</th>
+                    <th>Imagen</th>
+                    <th>Salario Anual</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var emp in Model)
+                {
+                    <tr>
+                        <td>@emp.Id</td>
+                        <td>@emp.employee_name</td>
+                        <td>@emp.employee_salary</td>
+                        <td>@emp.employee_age</td>
+                        <td>@emp.profile_image</td>
+                        <td>@emp.AnnualSalary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // function searchEmployee() {
+    //     var id = document.getElementById("employeeId").value;
+    //     window.location.href = "/Home/Index/" + id;
+    // }
+  
+    function searchEmployee() {
+        var id = document.getElementById("employeeId").value.trim();
+
+        if (id === "") {
+            // Si el campo está vacío, recarga la página para mostrar todos los empleados
+            window.location.href = "/Home/Index";
+        } else {
+            // Si hay un ID, filtra el empleado específico
+            window.location.href = "/Home/Index/" + id;
+        }
+    }
+</script>
+<!-- Información personal -->
+<div class="col-md-6">
+    <div class="card shadow-lg border-primary">
+        <div class="card-body">
+            <h2 class="text-primary">Cristian Franco</h2>
+            <h5 class="text-muted">Desarrollador Full Stack</h5>
+            <p class="mt-3">
+                Soy un ingeniero electrónico graduado y autodidacta con experiencia en desarrollo Full Stack. Manejo tecnologías como
+                <strong>C#, .NET Framework, Python, Django, SQL Server, MySQL, Oracle, Razor, Telerik y Angular</strong>.
+                También cuento con experiencia en <strong>Azure DevOps y consumo de APIs</strong>.
+            </p>
+            <ul class="list-unstyled mt-3">
+                <li><strong>📞 Celular:</strong> <a href="tel:+573204539499" class="text-dark">320 453 9499</a></li>
+                <li><strong>📧 Correo:</strong> <a href="mailto:cristianfranco01@hotmail.com" class="text-dark">cristianfranco01@hotmail.com</a></li>
+                <li><strong>📧 Correo Institucional:</strong> <a href="mailto:cdfranco@unbosque.edu.co" class="text-dark">cdfranco@unbosque.edu.co</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
