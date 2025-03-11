@@ -1,5 +1,5 @@
 # AmarisApi
-la aplicacion es creada en vs 2022 que consume las api de 
+la aplicacion es creada en vs 2022 patron de arquitectura MVC con test de pruebas para la capa de modelo en c#.net y blazor , que consume las api de 
  http://dummy.restapiexample.com
  Estos métodos API devuelven la lista de empleados y los datos de los empleados por Id.
  Contiene una capa de lógica empresarial para calcular el salario anual del empleado.
